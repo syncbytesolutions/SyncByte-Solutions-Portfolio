@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Applicant {
+  id          String   @id @default(cuid())
+  jobTitle    String
+  name        String
+  email       String
+  phone       String
+  linkedin    String?
+  portfolio   String?
+  coverLetter String
+  cvFilePath  String
+  status      String   @default("New") // New, Reviewed, Rejected
+  createdAt   DateTime @default(now())
+}

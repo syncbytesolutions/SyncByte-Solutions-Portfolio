@@ -1,0 +1,71 @@
+import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from 'next'
+import { Poppins, Inter, Montserrat, Geist_Mono } from 'next/font/google'
+import { Preloader } from '@/components/preloader'
+import { ScrollProgress } from '@/components/scroll-progress'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
+import './globals.css'
+
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+})
+const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+})
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
+
+export const metadata: Metadata = {
+  title: 'SyncByte Solutions (Pvt) Ltd — Smart Solutions. Synced Future.',
+  description:
+    'SyncByte Solutions builds world-class web & mobile applications, IoT systems, and UI/UX design from Sri Lanka to the world.',
+  generator: 'v0.app',
+  keywords: [
+    'SyncByte Solutions',
+    'web development Sri Lanka',
+    'mobile app development',
+    'IoT solutions',
+    'UI/UX design',
+    'software consulting',
+  ],
+  openGraph: {
+    title: 'SyncByte Solutions (Pvt) Ltd',
+    description: 'Smart Solutions. Synced Future.',
+    type: 'website',
+  },
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'light',
+  themeColor: '#111827',
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${geistMono.variable} bg-background`}
+    >
+      <body className="font-sans antialiased">
+        <Preloader />
+        <ScrollProgress />
+        <Navbar />
+        {children}
+        <Footer />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+    </html>
+  )
+}
