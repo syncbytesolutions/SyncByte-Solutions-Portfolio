@@ -1,5 +1,4 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
 import { Poppins, Inter, Montserrat, Geist_Mono } from 'next/font/google'
 import { Preloader } from '@/components/preloader'
 import { ScrollProgress } from '@/components/scroll-progress'
@@ -23,31 +22,17 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-  title: 'SyncByte Solutions (Pvt) Ltd — Smart Solutions. Synced Future.',
-  description:
-    'SyncByte Solutions builds world-class web & mobile applications, IoT systems, and UI/UX design from Sri Lanka to the world.',
-  generator: 'v0.app',
-  keywords: [
-    'SyncByte Solutions',
-    'web development Sri Lanka',
-    'mobile app development',
-    'IoT solutions',
-    'UI/UX design',
-    'software consulting',
-  ],
+export const metadata = {
+  title: 'SyncByte Solutions | Software & Web Development',
+  description: 'SyncByte Solutions is a software and web development company based in Sri Lanka, building scalable web apps, mobile apps, and digital solutions.',
   openGraph: {
-    title: 'SyncByte Solutions (Pvt) Ltd',
-    description: 'Smart Solutions. Synced Future.',
-    type: 'website',
+    title: 'SyncByte Solutions | Software & Web Development',
+    description: 'SyncByte Solutions is a software and web development company based in Sri Lanka, building scalable web apps, mobile apps, and digital solutions.',
+    images: ['/syncbyte-mark.png'],
+    url: 'https://syncbytesolutions.com',
+    siteName: 'SyncByte Solutions',
   },
 }
-
-export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#111827',
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{

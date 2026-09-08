@@ -444,8 +444,11 @@ export function Careers() {
                     }}
                   >
                     {/* Header row */}
-                    <button type="button"
+                    <div
+                      role="button"
+                      tabIndex={0}
                       onClick={() => setExpanded(isOpen ? null : job.title)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(isOpen ? null : job.title) } }}
                       className="flex w-full items-center gap-4 px-6 py-5 text-left"
                     >
                       <span className="hidden shrink-0 sm:inline-flex h-11 w-11 items-center justify-center rounded-xl"
@@ -484,7 +487,7 @@ export function Careers() {
                           {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                         </span>
                       </div>
-                    </button>
+                    </div>
 
                     {/* Expanded details */}
                     <AnimatePresence>
