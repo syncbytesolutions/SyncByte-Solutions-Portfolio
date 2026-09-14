@@ -24,10 +24,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'SyncByte Solutions (Pvt) Ltd — Smart Solutions. Synced Future.',
-  description:
-    'SyncByte Solutions builds world-class web & mobile applications, IoT systems, and UI/UX design from Sri Lanka to the world.',
-  generator: 'v0.app',
+  metadataBase: new URL('https://syncbytesolutions.com'),
+  title: 'SyncByte Solutions | Software & Web Development',
+  description: 'SyncByte Solutions is a software and web development company based in Sri Lanka, building scalable web apps, mobile apps, and digital solutions.',
   keywords: [
     'SyncByte Solutions',
     'web development Sri Lanka',
@@ -37,8 +36,11 @@ export const metadata: Metadata = {
     'software consulting',
   ],
   openGraph: {
-    title: 'SyncByte Solutions (Pvt) Ltd',
-    description: 'Smart Solutions. Synced Future.',
+    title: 'SyncByte Solutions | Software & Web Development',
+    description: 'SyncByte Solutions is a software and web development company based in Sri Lanka, building scalable web apps, mobile apps, and digital solutions.',
+    images: ['/syncbyte-mark.png'],
+    url: 'https://syncbytesolutions.com',
+    siteName: 'SyncByte Solutions',
     type: 'website',
   },
 }
@@ -49,23 +51,23 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${geistMono.variable} bg-background`}
-    >
+      <html
+          lang="en"
+          className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${geistMono.variable} bg-background`}
+      >
       <body className="font-sans antialiased">
-        <Preloader />
-        <ScrollProgress />
-        <Navbar />
-        {children}
-        <Footer />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+      <Preloader />
+      <ScrollProgress />
+      <Navbar />
+      {children}
+      <Footer />
+      {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
-    </html>
+      </html>
   )
 }
