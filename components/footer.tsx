@@ -122,7 +122,7 @@ export function Footer() {
           <p className="text-xs text-slate-600">
             © 2026{' '}
             <span className="text-violet-500">
-              SyncByte Solutions (Pvt) Ltd.
+              SyncByte Solutions (Pvt) Ltd
             </span>{' '}
             All Rights Reserved.
           </p>
